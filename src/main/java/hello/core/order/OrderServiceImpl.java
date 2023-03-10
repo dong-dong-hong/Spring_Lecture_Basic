@@ -1,5 +1,6 @@
 package hello.core.order;
 
+import hello.core.annotation.MainDiscountPolicy;
 import hello.core.discount.DiscountPolicy;
 import hello.core.member.Member;
 import hello.core.member.MemberRepository;
@@ -8,7 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-@RequiredArgsConstructor // final 필드, @NoNull에 대한 필드에 대한 생성자 생성 -> 의존관계 추가할 때 정말 편리하다
+//@RequiredArgsConstructor // final 필드, @NoNull에 대한 필드에 대한 생성자 생성 -> 의존관계 추가할 때 정말 편리하다
 // 정리
 // 최근에는 생성자를 딱 1개 두고, @AutoWired를 생략하는 방법을 주로 사용한다. 여기에 Lombok 라이브러리의
 // @RequiredArgsConstructor 함께 사용하면 기능은 다 제공하면서, 코드는 깔끔하게 사용할 수 있다.
@@ -49,11 +50,11 @@ public class OrderServiceImpl implements OrderService {
     // 주로 생성자 주입을 쓰고 변경 가능할 때는 가끔 수정자 주입이 쓰인다.
 
 //    @Autowired // 생성자에서 여러 의존관계도 한번에 주입받을 수 있다.(생성자가 하나면 생략가능)
-//    public OrderServiceImpl(MemberRepository memberRepository, DiscountPolicy discountPolicy) { // 싱글톤 보장이니까 위에 set이나 생성자나 같다.
-////        System.out.println("1. OrderServiceImpl.OrderServiceImpl");
-//        this.memberRepository = memberRepository;
-//        this.discountPolicy = discountPolicy;
-//    }
+    public OrderServiceImpl(MemberRepository memberRepository, @MainDiscountPolicy DiscountPolicy discountPolicy) { // 싱글톤 보장이니까 위에 set이나 생성자나 같다.
+//        System.out.println("1. OrderServiceImpl.OrderServiceImpl"); // ctrl + alt + b -> 구현을 찾을 수 있다.
+        this.memberRepository = memberRepository;
+        this.discountPolicy = discountPolicy;
+    }
     //sout  : 문자열을 System.out으로 출력
     //soutm : 현재 클래스 및 메서드 이름을 System.out으로 출력
     //soutv : 값을 System.out으로 출력
