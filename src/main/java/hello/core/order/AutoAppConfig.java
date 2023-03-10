@@ -4,6 +4,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.FilterType;
 
+
 @Configuration
 @ComponentScan( //자동으로 스프링 빈을 등록할 수 있는 기능
         basePackages = "hello.core", // 어디서부터 찾는 지 지정 가능
