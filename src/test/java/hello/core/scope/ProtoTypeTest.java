@@ -4,7 +4,6 @@ import jakarta.annotation.PostConstruct;
 import jakarta.annotation.PreDestroy;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.context.properties.ConfigurationPropertiesScan;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Scope;
 
@@ -23,8 +22,8 @@ public class ProtoTypeTest {
         System.out.println("protoTypeBean2 = " + protoTypeBean2);
         assertThat(protoTypeBean1).isNotSameAs(protoTypeBean2);
 
-//        protoTypeBean1.destory();
-//        protoTypeBean2.destory();
+//      protoTypeBean1.destory();
+//      protoTypeBean2.destory();
 
         ac.close();
     }
