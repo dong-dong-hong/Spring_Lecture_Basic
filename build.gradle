@@ -21,6 +21,8 @@ repositories {
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter'
+    // web 라이브러리 추가
+    implementation 'org.springframework.boot:spring-boot-starter-web'
     implementation 'jakarta.inject:jakarta.inject-api:2.0.1'
     compileOnly 'org.projectlombok:lombok:1.18.26'
     annotationProcessor 'org.projectlombok:lombok:1.18.26'
